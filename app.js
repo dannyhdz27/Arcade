@@ -10,33 +10,44 @@ let snake = {
 
 const Board = document.querySelector(".gameBoard");
 
-setFood();
-
 for (let i = 0; i < 10; i++) {
   for (let j = 0; j < 10; j++) {
-    const cell = document.createElement("div");
-    cell.id = `${i}-${j}`;
-    Board.appendChild(cell);
+    const box = document.createElement("div");
+    box.id = `${i}-${j}`;
+    Board.appendChild(box);
   }
 }
 
-// let gameLoop = setInterval(frameUpdate, 1000 / 30);
+let gameLoop = setInterval(frameUpdate, 1000 / 30);
 
-// function frameUpdate() {
-//   setBoard();
-//   setFood();
-//   moveSnake();
+function frameUpdate() {
+  //   moveSnake();
+  //   if (hitWall() || hitSelf()) {
+  //     clearInterval(gameLoop);
+  //   }
+}
 
-//   if (hitWall() || hitSelf()) {
-//     clearInterval(gameLoop);
-//   }
-// }
+Board.children[0].classList.add("snake");
+
+setFood();
 
 function setFood() {
   const xValue = Math.floor(Math.random() * 10);
   const yValue = Math.floor(Math.random() * 10);
-  const food = `${xValue}-${yValue}`;
-  // const foodID = document.getElementById(food);
-  div.classList.add("food");
+  let food = `${xValue}-${yValue}`;
+  let div1 = document.getElementById(food);
+  div1.classList.add("apple");
+
   console.log("the food id is:", food);
 }
+
+// document.addEventListener("keydow", changeDirection);
+// function gameOver(){
+// if(
+//   snake[snake.length -1].row < 0 ||
+//   snake[snake.length -1].col < 0 ||
+//   snake[snake.length -1].row < 10 ||
+//   snake[snake.length -1].col < 10 ||
+// )
+
+// }
